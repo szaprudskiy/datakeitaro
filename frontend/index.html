@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <title>DataKeitaro</title>
+</head>
+<body>
+    <div class="row">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s3">
+              <input id="campaignId" type="text" class="validate">
+              <label for="campaignId">ID Campaign</label>
+            </div>
+            <div class="input-field col s3">
+              <input id="offerId" type="text" class="validate">
+              <label for="offerId">ID Offer</label>
+            </div>
+            <div class="input-field col s3">
+              <input id="dateFrom" type="text" class="validate">
+              <label for="dateFrom">DateFrom</label>
+            </div>
+            <div class="input-field col s3">
+              <input id="dateTo" type="text" class="validate">
+              <label for="dateTo">DateTo</label>
+            </div>
+          </div>
+          <a class="waves-effect waves-light btn" id="btn">Получить данные</a>
+        </form>
+      </div>
+      <div class="progress" style="display: none;">
+        <div class="indeterminate"></div>
+    </div>
+      <div class="row" id="result" style="display: none;">
+        <table class="col s12">
+          <thead>
+            <tr>
+                <th>% Отказа</th>
+                <th>Среднее время</th>
+                <th>Cреднее кол-во кликов</th>
+                <th>% Людей приступивших к заполнению формы</th>
+                <th>% Людей оставивших лид</th>
+                <th>Коэффициент конверсии</th>
+                <th>Скрол</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="subid19Refusal"></td>
+              <td id="subid19Average"></td>
+              <td id="subid20"></td>
+              <td id="initialCheckout"></td>
+              <td id="isLead"></td>
+              <td id="factorConversion"></td>
+              <td id="scroll">
+                <ul>
+                  <li><strong>fb-10: </strong><span id="fb-10"></span></li>
+                  <li><strong>fb-20: </strong><span id="fb-20"></span></li>
+                  <li><strong>fb-30: </strong><span id="fb-30"></span></li>
+                  <li><strong>fb-40: </strong><span id="fb-40"></span></li>
+                  <li><strong>fb-50: </strong><span id="fb-50"></span></li>
+                  <li><strong>fb-60: </strong><span id="fb-60"></span></li>
+                  <li><strong>fb-70: </strong><span id="fb-70"></span></li>
+                  <li><strong>fb-80: </strong><span id="fb-80"></span></li>
+                  <li><strong>fb-90: </strong><span id="fb-90"></span></li>
+                  <li><strong>fb-100: </strong><span id="fb-100"></span></li>
+                </ul>
+              </td>
+            </tr>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>
