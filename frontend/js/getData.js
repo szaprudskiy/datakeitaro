@@ -4,7 +4,7 @@ const getData = async () => {
   const dateFrom = document.getElementById('dateFrom').value
   const dateTo = document.getElementById('dateTo').value
   console.log(campaignId, offerId)
-  const apiUrl = 'http://localhost:3000/getdata'
+  const apiUrl = 'https://datakeitaro.vercel.app/getdata'
 
   try {
     const response = await fetch(apiUrl, {
