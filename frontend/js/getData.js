@@ -3,6 +3,9 @@ const getData = async () => {
   const offerId = document.getElementById('offerId').value
   const dateFrom = document.getElementById('dateFrom').value
   const dateTo = document.getElementById('dateTo').value
+  const showSubId21 = document.getElementById('subid21').checked
+  const showSubId22 = document.getElementById('subid22').checked
+
   console.log(campaignId, offerId)
   const apiUrl = 'https://datakeitaro.vercel.app/getdata'
 
@@ -16,6 +19,28 @@ const getData = async () => {
     })
     const data = await response.json()
     const getData = data.data.rows
+
+    const filteredDataSubId21 = showSubId21
+      ? getData.filter((item) => item.sub_id_21 !== '')
+      : getData
+
+    const subid21Element = document.getElementById('subid21Element')
+    if (showSubId21 && filteredDataSubId21.length > 0) {
+      subid21Element.textContent = filteredDataSubId21[0].sub_id_21
+    } else {
+      subid21Element.textContent = ''
+    }
+
+    const filteredDataSubId22 = showSubId22
+      ? getData.filter((item) => item.sub_id_22 !== '')
+      : getData
+
+    const subid22Element = document.getElementById('subid22Element')
+    if (showSubId22 && filteredDataSubId22.length > 0) {
+      subid22Element.textContent = filteredDataSubId22[0].sub_id_22
+    } else {
+      subid22Element.textContent = ''
+    }
 
     const totalCount = getData.reduce((count, item) => {
       return count + 1

@@ -7,6 +7,7 @@ const fetchBtn = document.getElementById('btn')
 fetchBtn.addEventListener('click', async () => {
   loader.style.display = 'block'
   await getData()
+
   resultBlock.style.display = 'block'
   loader.style.display = 'none'
 })
