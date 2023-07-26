@@ -75,19 +75,17 @@ const getData = async () => {
     const lead = document.getElementById('isLead')
 
     lead.textContent = ((totalIsLead / totalCount) * 100).toFixed(2)
-    // const filteredData = getData.filter((item) => item.sub_id_19 >= 60)
 
-    // const count = filteredData.length
+    const filteredData = getData.filter((item) => item.sub_id_19 > 60)
 
-    // const sumAnotherValue = filteredData.reduce(
-    //   (sum, item) => sum + item.sub_id_20,
-    //   0
-    // )
+    const countfilteredData = filteredData.length
 
-    // const result = (count / sumAnotherValue) * 100
+    const factorConversion = document.getElementById('factorConversion')
 
-    // console.log(result)
-    // const factorConversion = document.getElementById('factorConversion')
+    factorConversion.textContent = (
+      (countfilteredData / totalCount) *
+      100
+    ).toFixed(2)
 
     const totalfb10 = getData.reduce((count, item) => {
       return item.sub_id_16 === 'fb-10' ? count + 1 : count
