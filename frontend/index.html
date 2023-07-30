@@ -29,28 +29,22 @@
             </div>
           </div>
           <div class="row">
-            <div class="input-field col s12">
-              <p class="col s1">
-                <label>
-                  <input type="checkbox" id="subid21" />
-                  <span>sub_id_21</span>
-                </label>
-              </p>
-              <p class="col s1">
-                <label>
-                  <input type="checkbox" id="subid22" />
-                  <span>sub_id_22</span>
-                </label>
-              </p>
+            <div class="input-field col s1">
+              <input id="subid" type="text" class="validate">
+              <label for="subid">sub_id</label>
+            </div>
+            
             </div>
           </div>
           <a class="waves-effect waves-light btn" id="btn">Получить данные</a>
+          <a class="waves-effect waves-light btn" id="filterbtn">Получить данные по sub_id</a>
         </form>
       </div>
       <div class="progress" style="display: none;">
         <div class="indeterminate"></div>
     </div>
       <div class="row" id="result" style="display: none;">
+       <h5>Общая информация</h5>
         <table class="col s12">
           <thead>
             <tr>
@@ -89,22 +83,9 @@
             </tr>
           </tbody>
         </table>
-        <table class="col s12">
-          <thead>
-            <tr>
-                <th>Sub_Id_21</th>
-                <th>Sub_Id_22</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td id="subid21Element"></td>
-              <td id="subid22Element"></td>
-            </tr>
-            </tr>
-          </tbody>
-        </table>
+        
       </div>
+      <div class="row" id="resultSubId" style="display: none;"></div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script type="module" src="js/app.js"></script>
 </body>
