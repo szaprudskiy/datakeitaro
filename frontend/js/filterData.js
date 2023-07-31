@@ -41,14 +41,129 @@ const filterData = async () => {
 
     console.log(countSubId)
 
-    const totalCount = getData.length
-
     const emptyCountSubId19 = getData.reduce((count, item) => {
       return item.sub_id_19 === '' ? count + 1 : count
     }, 0)
 
-    const percentEmptySubId19 = (emptyCountSubId19 / totalCount) * 100
+    const percentEmptySubId19 = (emptyCountSubId19 / countSubId) * 100
 
+    const sumSubId19 = getData.reduce((total, obj) => {
+      const value = parseInt(obj.sub_id_19, 10)
+      return !isNaN(value) ? total + value : total
+    }, 0)
+
+    const subid19Average = Math.round(sumSubId19 / countSubId)
+
+    const sumSubId20 = getData.reduce((total, obj) => {
+      const value = parseInt(obj.sub_id_20, 10)
+      return !isNaN(value) ? total + value : total
+    }, 0)
+
+    const subid20Average = (sumSubId20 / countSubId).toFixed(2)
+
+    const totalInitialCheckOut = getData.reduce((acc, obj) => {
+      if (obj.sub_id_18 !== '') {
+        return acc + 1
+      } else {
+        return acc
+      }
+    }, 0)
+
+    const totalClicks = getData.reduce((acc, obj) => {
+      if (obj.sub_id_20 !== '') {
+        return acc + 1
+      } else {
+        return acc
+      }
+    }, 0)
+
+    const initialCheckout =
+      ((totalInitialCheckOut / totalClicks) * 100).toFixed(2) + ' %'
+
+    const totalIsLead = getData.reduce((count, item) => {
+      return item.is_lead === true ? count + 1 : count
+    }, 0)
+
+    const lead = ((totalIsLead / countSubId) * 100).toFixed(2)
+
+    const filteredData = getData.filter((item) => item.sub_id_19 > 60)
+
+    const countfilteredData = filteredData.length
+
+    const factorConversion = ((countfilteredData / countSubId) * 100).toFixed(2)
+
+    const totalfb10 = getData.reduce((count, item) => {
+      return item.sub_id_16 === 'fb-10' ? count + 1 : count
+    }, 0)
+
+    const fb10 = ((totalfb10 / countSubId) * 100).toFixed(2) + ' %'
+
+    const totalfb20 = getData.reduce((count, item) => {
+      return item.sub_id_16 === 'fb-20' ? count + 1 : count
+    }, 0)
+
+    const fb20 = ((totalfb20 / countSubId) * 100).toFixed(2) + ' %'
+
+    const totalfb30 = getData.reduce((count, item) => {
+      return item.sub_id_16 === 'fb-30' ? count + 1 : count
+    }, 0)
+
+    const fb30 = ((totalfb30 / countSubId) * 100).toFixed(2) + ' %'
+
+    const totalfb40 = getData.reduce((count, item) => {
+      return item.sub_id_16 === 'fb-40' ? count + 1 : count
+    }, 0)
+
+    const fb40 = ((totalfb40 / countSubId) * 100).toFixed(2) + ' %'
+
+    const totalfb50 = getData.reduce((count, item) => {
+      return item.sub_id_16 === 'fb-50' ? count + 1 : count
+    }, 0)
+
+    const fb50 = ((totalfb50 / countSubId) * 100).toFixed(2) + ' %'
+
+    const totalfb60 = getData.reduce((count, item) => {
+      return item.sub_id_16 === 'fb-60' ? count + 1 : count
+    }, 0)
+
+    const fb60 = ((totalfb60 / countSubId) * 100).toFixed(2) + ' %'
+
+    const totalfb70 = getData.reduce((count, item) => {
+      return item.sub_id_16 === 'fb-70' ? count + 1 : count
+    }, 0)
+
+    const fb70 = ((totalfb70 / countSubId) * 100).toFixed(2) + ' %'
+
+    const totalfb80 = getData.reduce((count, item) => {
+      return item.sub_id_16 === 'fb-80' ? count + 1 : count
+    }, 0)
+
+    const fb80 = ((totalfb80 / countSubId) * 100).toFixed(2) + ' %'
+
+    const totalfb90 = getData.reduce((count, item) => {
+      return item.sub_id_16 === 'fb-90' ? count + 1 : count
+    }, 0)
+
+    const fb90 = ((totalfb90 / countSubId) * 100).toFixed(2) + ' %'
+
+    const totalfb100 = getData.reduce((count, item) => {
+      return item.sub_id_16 === 'fb-100' ? count + 1 : count
+    }, 0)
+
+    const fb100 = ((totalfb100 / countSubId) * 100).toFixed(2) + ' %'
+    const allfb = [
+      `fb-10: ${fb10}`,
+      `fb-20: ${fb20}`,
+      `fb-30: ${fb30}`,
+      `fb-40: ${fb40}`,
+      `fb-50: ${fb50}`,
+      `fb-60: ${fb60}`,
+      `fb-70: ${fb70}`,
+      `fb-80: ${fb80}`,
+      `fb-90: ${fb90}`,
+      `fb-100: ${fb100}`,
+    ]
+    const joinedFb = allfb.join('<br>')
     // Create the <table> element
     const table = document.createElement('table')
     table.className = 'col s12' // Add any desired classes
@@ -82,12 +197,18 @@ const filterData = async () => {
 
     const dataCells = [
       percentEmptySubId19.toFixed(2) + ' %',
-      `${countSubId}`, // Replace with your calculated values
+      `${countSubId}`,
+      subid19Average,
+      subid20Average,
+      initialCheckout,
+      lead,
+      factorConversion,
+      joinedFb,
     ]
 
     dataCells.forEach((dataCellText) => {
       const td = document.createElement('td')
-      td.textContent = dataCellText
+      td.innerHTML = dataCellText
       tbodyRow.appendChild(td)
     })
 
@@ -122,16 +243,19 @@ const filterData = async () => {
         (key) => keysSubId[0][key] === subIdValue
       )
 
-      // Get the parent element where the new table should be appended
-      const resultDiv = document.getElementById('resultSubId')
+      if (subIdValue) {
+        // Get the parent element where the new table should be appended
+        const resultDiv = document.getElementById('resultSubId')
 
-      const title = document.createElement('h5')
+        const title = document.createElement('h5')
 
-      title.textContent = `Информация по ${matchingKey}: ${subIdValue}`
+        title.textContent = `Информация по ${matchingKey}: ${subIdValue}`
 
-      resultDiv.appendChild(title)
-      // Append the new table to the parent element
-      resultDiv.appendChild(table)
+        resultDiv.appendChild(title)
+        // Append the new table to the parent element
+        resultDiv.appendChild(table)
+      }
+
       // matchingKey содержит название свойства (название sub_id), которое соответствует subIdValue
       console.log('Найденное название sub_id:', matchingKey)
     } else {
