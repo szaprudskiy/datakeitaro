@@ -2,7 +2,7 @@ const axios = require('axios')
 
 const postData = async (req, res) => {
   try {
-    const { campaignId, offerId, dateFrom, dateTo } = req.body
+    const { campaignId, landingId, dateFrom, dateTo } = req.body
     const apiUrl = process.env.URL + `/admin_api/v1/clicks/log`
 
     const response = await axios.post(
@@ -62,9 +62,9 @@ const postData = async (req, res) => {
             expression: campaignId,
           },
           {
-            name: 'offer_id',
+            name: 'landing_id',
             operator: 'EQUALS',
-            expression: offerId,
+            expression: landingId,
           },
         ],
         // "sort": [

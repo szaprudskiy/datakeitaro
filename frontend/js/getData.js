@@ -1,6 +1,6 @@
 const getData = async () => {
   const campaignId = document.getElementById('campaignId').value
-  const offerId = document.getElementById('offerId').value
+  const landingId = document.getElementById('landingId').value
   const dateFrom = document.getElementById('dateFrom').value
   const dateTo = document.getElementById('dateTo').value
 
@@ -12,7 +12,7 @@ const getData = async () => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ campaignId, offerId, dateFrom, dateTo }),
+      body: JSON.stringify({ campaignId, landingId, dateFrom, dateTo }),
     })
     const data = await response.json()
     const getData = data.data.rows
