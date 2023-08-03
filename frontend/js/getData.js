@@ -5,19 +5,27 @@ const getData = async () => {
   const dateTo = document.getElementById('dateTo').value
   //urll
 
-  if (!campaignId) {
-    return
-  }
-
   const apiUrl = 'https://datakeitaro.vercel.app/getdata'
 
   try {
+    let requestBody = {
+      dateFrom,
+      dateTo,
+    }
+
+    if (campaignId) {
+      requestBody.campaignId = campaignId
+    }
+
+    if (landingId) {
+      requestBody.landingId = landingId
+    }
     const response = await fetch(apiUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ campaignId, landingId, dateFrom, dateTo }),
+      body: JSON.stringify(requestBody),
     })
     const data = await response.json()
     const getData = data.data.rows
