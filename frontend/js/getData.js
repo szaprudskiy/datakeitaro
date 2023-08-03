@@ -4,6 +4,11 @@ const getData = async () => {
   const dateFrom = document.getElementById('dateFrom').value
   const dateTo = document.getElementById('dateTo').value
   //urll
+
+  if (!campaignId) {
+    return
+  }
+
   const apiUrl = 'https://datakeitaro.vercel.app/getdata'
 
   try {
