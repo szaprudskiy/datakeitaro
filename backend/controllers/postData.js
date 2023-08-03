@@ -55,7 +55,7 @@ const postData = async (req, res) => {
       ],
       filters: [],
     }
-    if (campaign_id) {
+    if (campaignId) {
       requestData.filters.push({
         name: 'campaign_id',
         operator: 'EQUALS',
