@@ -20,6 +20,8 @@ const getData = async () => {
     if (landingId) {
       requestBody.landingId = landingId
     }
+
+    console.log(requestBody)
     const response = await fetch(apiUrl, {
       method: 'POST',
       headers: {
