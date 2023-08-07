@@ -3,7 +3,7 @@ const getData = async () => {
   const landingId = document.getElementById('landingId').value
   const dateFrom = document.getElementById('dateFrom').value
   const dateTo = document.getElementById('dateTo').value
-  //urrll
+  //url
 
   const apiUrl = 'https://datakeitaro.vercel.app/getdata'
 
