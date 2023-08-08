@@ -32,6 +32,8 @@ const getData = async () => {
     const data = await response.json()
     const getData = data.data.rows
 
+    console.log(getData)
+
     const totalCount = getData.length
 
     const emptyCountSubId19 = getData.reduce((count, item) => {
