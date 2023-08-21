@@ -5,7 +5,7 @@ const getData = async () => {
   const dateTo = document.getElementById('dateTo').value
   //url
 
-  const apiUrl = 'https://datakeitaro.vercel.app/getdata'
+  const apiUrl = 'http://34.230.63.47/getdata'
 
   try {
     let requestBody = {
