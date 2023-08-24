@@ -5,7 +5,7 @@ const getData = async () => {
   const dateTo = document.getElementById('dateTo').value
   //url
 
-  const apiUrl = 'http://34.230.63.47/getdata'
+  const apiUrl = 'http://195.245.112.245:5001/getdata'
 
   try {
     let requestBody = {
