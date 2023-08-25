@@ -5,7 +5,7 @@ const getData = async () => {
   const dateTo = document.getElementById('dateTo').value
   //url
 
-  const apiUrl = 'http://195.245.112.245:5001/getdata'
+  const apiUrl = 'https://app.stat-gurteam.info/getdata'
 
   try {
     let requestBody = {
