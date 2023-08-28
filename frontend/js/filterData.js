@@ -5,7 +5,7 @@ const filterData = async () => {
   const dateTo = document.getElementById('dateTo').value
   const subIdValue = document.getElementById('subid').value
 
-  const apiUrl = 'https://app.stat-gurteam.info/getdata'
+  const apiUrl = 'https://lite.stat-gurteam.info/getdata'
 
   try {
     const response = await fetch(apiUrl, {
