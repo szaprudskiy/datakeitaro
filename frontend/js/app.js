@@ -12,8 +12,8 @@ fetchBtn.addEventListener('click', () => {
   const selectedPeriod = document.getElementById('periodSelector').value
   const campaignId = document.getElementById('campaignId').value
   const landingId = document.getElementById('landingId').value
-
-  let dateFrom, dateTo
+  const dateFrom = document.getElementById('dateFrom').value
+  const dateTo = document.getElementById('dateTo').value
 
   if (selectedPeriod === 'today') {
     const today = new Date()
