@@ -17,13 +17,13 @@ fetchBtn.addEventListener('click', async () => {
 
   if (selectedPeriod === 'today') {
     const today = new Date()
-    dateFrom = today.toISOString().split('T')[0]
-    dateTo = dateFrom
+    const dateFrom = today.toISOString().split('T')[0]
+    const dateTo = dateFrom
   } else if (selectedPeriod === 'yesterday') {
     const yesterday = new Date()
     yesterday.setDate(yesterday.getDate() - 1)
-    dateFrom = yesterday.toISOString().split('T')[0]
-    dateTo = dateFrom
+    const dateFrom = yesterday.toISOString().split('T')[0]
+    const dateTo = dateFrom
   } else if (selectedPeriod === 'lastWeek') {
     const today = new Date()
     const lastWeek = new Date(
@@ -31,8 +31,8 @@ fetchBtn.addEventListener('click', async () => {
       today.getMonth(),
       today.getDate() - 7
     )
-    dateFrom = lastWeek.toISOString().split('T')[0]
-    dateTo = today.toISOString().split('T')[0]
+    const dateFrom = lastWeek.toISOString().split('T')[0]
+    const dateTo = today.toISOString().split('T')[0]
   }
 
   await getData(dateFrom, dateTo, campaignId, landingId)
