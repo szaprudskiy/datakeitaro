@@ -7,7 +7,7 @@ const fetchBtn = document.getElementById('btn')
 const filterBtn = document.getElementById('filterbtn')
 const resultSubId = document.getElementById('resultSubId')
 
-fetchBtn.addEventListener('click', () => {
+fetchBtn.addEventListener('click', async () => {
   loader.style.display = 'block'
   const selectedPeriod = document.getElementById('periodSelector').value
   const campaignId = document.getElementById('campaignId').value
@@ -35,7 +35,7 @@ fetchBtn.addEventListener('click', () => {
     dateTo = today.toISOString().split('T')[0]
   }
 
-  getData(dateFrom, dateTo, campaignId, landingId)
+  await getData(dateFrom, dateTo, campaignId, landingId)
 
   resultBlock.style.display = 'block'
   loader.style.display = 'none'
