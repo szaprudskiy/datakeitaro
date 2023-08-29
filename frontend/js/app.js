@@ -76,6 +76,6 @@ filterBtn.addEventListener('click', async () => {
 
   await filterData(dateFrom, dateTo, campaignId, landingId, subIdValue)
 
-  resultBlock.style.display = 'block'
+  resultSubId.style.display = 'block'
   loader.style.display = 'none'
 })
