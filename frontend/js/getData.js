@@ -1,4 +1,4 @@
-const getData = async (dateFrom, dateTo, campaignId, landingId) => {
+const getData = async () => {
   //url
 
   const apiUrl = 'https://lite.stat-gurteam.info/getdata'

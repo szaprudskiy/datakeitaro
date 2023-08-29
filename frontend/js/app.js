@@ -13,6 +13,8 @@ fetchBtn.addEventListener('click', async () => {
   const selectedPeriod = document.getElementById('periodSelector').value
   let dateFrom = document.getElementById('dateFrom').value
   let dateTo = document.getElementById('dateTo').value
+  const campaignId = document.getElementById('campaignId').value
+  const landingId = document.getElementById('landingId').value
 
   if (!dateFrom || !dateTo) {
     if (selectedPeriod === 'today') {
@@ -34,7 +36,7 @@ fetchBtn.addEventListener('click', async () => {
     }
   }
 
-  await getData(dateFrom, dateTo)
+  await getData(dateFrom, dateTo, campaignId, landingId)
 
   resultBlock.style.display = 'block'
   loader.style.display = 'none'
