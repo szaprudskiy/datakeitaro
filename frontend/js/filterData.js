@@ -1,11 +1,30 @@
-const filterData = async () => {
-  const campaignId = document.getElementById('campaignId').value
-  const landingId = document.getElementById('landingId').value
-  const dateFrom = document.getElementById('dateFrom').value
-  const dateTo = document.getElementById('dateTo').value
-  const subIdValue = document.getElementById('subid').value
+const filterData = async (
+  dateFrom,
+  dateTo,
+  campaignId,
+  landingId,
+  subIdValue
+) => {
+  // const campaignId = document.getElementById('campaignId').value
+  // const landingId = document.getElementById('landingId').value
+  // const dateFrom = document.getElementById('dateFrom').value
+  // const dateTo = document.getElementById('dateTo').value
+  // const subIdValue = document.getElementById('subid').value
 
   const apiUrl = 'https://lite.stat-gurteam.info/getdata'
+
+  let requestBody = {
+    dateFrom,
+    dateTo,
+  }
+
+  if (campaignId) {
+    requestBody.campaignId = campaignId
+  }
+
+  if (landingId) {
+    requestBody.landingId = landingId
+  }
 
   try {
     const response = await fetch(apiUrl, {
