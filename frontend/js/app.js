@@ -11,15 +11,19 @@ const yesterdayButton = document.getElementById('yesterdayButton')
 const lastWeekButton = document.getElementById('lastWeekButton')
 
 todayButton.addEventListener('click', () => {
+  loader.style.display = 'block'
   const today = new Date()
   const dateFrom = today.toISOString().split('T')[0]
   const dateTo = dateFrom
   const campaignId = document.getElementById('campaignId').value
   const landingId = document.getElementById('landingId').value
   getData(dateFrom, dateTo, campaignId, landingId)
+  resultSubId.style.display = 'block'
+  loader.style.display = 'none'
 })
 
 yesterdayButton.addEventListener('click', () => {
+  loader.style.display = 'block'
   const yesterday = new Date()
   yesterday.setDate(yesterday.getDate() - 1)
   const dateFrom = yesterday.toISOString().split('T')[0]
@@ -27,9 +31,12 @@ yesterdayButton.addEventListener('click', () => {
   const campaignId = document.getElementById('campaignId').value
   const landingId = document.getElementById('landingId').value
   getData(dateFrom, dateTo, campaignId, landingId)
+  resultSubId.style.display = 'block'
+  loader.style.display = 'none'
 })
 
 lastWeekButton.addEventListener('click', () => {
+  loader.style.display = 'block'
   const today = new Date()
   const lastWeek = new Date(
     today.getFullYear(),
@@ -41,6 +48,8 @@ lastWeekButton.addEventListener('click', () => {
   const campaignId = document.getElementById('campaignId').value
   const landingId = document.getElementById('landingId').value
   getData(dateFrom, dateTo, campaignId, landingId)
+  resultSubId.style.display = 'block'
+  loader.style.display = 'none'
 })
 
 fetchBtn.addEventListener('click', () => {

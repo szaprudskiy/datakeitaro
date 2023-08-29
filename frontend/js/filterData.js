@@ -1,13 +1,31 @@
-const filterData = async (dateFrom, dateTo, campaignId, landingId) => {
-  const apiUrl = 'https://lite.stat-gurteam.info/getdata'
-
+const filterData = async (
+  dateFrom,
+  dateTo,
+  campaignId,
+  landingId,
+  subIdValue
+) => {
   try {
+    const apiUrl = 'https://lite.stat-gurteam.info/getdata'
+
+    let requestBody = {
+      dateFrom,
+      dateTo,
+    }
+
+    if (campaignId) {
+      requestBody.campaignId = campaignId
+    }
+
+    if (landingId) {
+      requestBody.landingId = landingId
+    }
     const response = await fetch(apiUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ campaignId, landingId, dateFrom, dateTo }),
+      body: JSON.stringify(requestBody),
     })
     const data = await response.json()
     const getData = data.data.rows
