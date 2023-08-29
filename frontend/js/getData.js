@@ -1,6 +1,4 @@
 const getData = async (dateFrom, dateTo, campaignId, landingId) => {
-  const dateFrom = document.getElementById('dateFrom').value
-  const dateTo = document.getElementById('dateTo').value
   //url
 
   const apiUrl = 'https://lite.stat-gurteam.info/getdata'
