@@ -6,18 +6,64 @@ const resultBlock = document.getElementById('result')
 const fetchBtn = document.getElementById('btn')
 const filterBtn = document.getElementById('filterbtn')
 const resultSubId = document.getElementById('resultSubId')
+const todayButton = document.getElementById('todayButton')
+const yesterdayButton = document.getElementById('yesterdayButton')
+const lastWeekButton = document.getElementById('lastWeekButton')
 
-fetchBtn.addEventListener('click', async () => {
+todayButton.addEventListener('click', () => {
+  const today = new Date()
+  const dateFrom = today.toISOString().split('T')[0]
+  const dateTo = dateFrom
+  const campaignId = document.getElementById('campaignId').value
+  const landingId = document.getElementById('landingId').value
+  getData(dateFrom, dateTo, campaignId, landingId)
+})
+
+yesterdayButton.addEventListener('click', () => {
+  const yesterday = new Date()
+  yesterday.setDate(yesterday.getDate() - 1)
+  const dateFrom = yesterday.toISOString().split('T')[0]
+  const dateTo = dateFrom
+  const campaignId = document.getElementById('campaignId').value
+  const landingId = document.getElementById('landingId').value
+  getData(dateFrom, dateTo, campaignId, landingId)
+})
+
+lastWeekButton.addEventListener('click', () => {
+  const today = new Date()
+  const lastWeek = new Date(
+    today.getFullYear(),
+    today.getMonth(),
+    today.getDate() - 7
+  )
+  const dateFrom = lastWeek.toISOString().split('T')[0]
+  const dateTo = today.toISOString().split('T')[0]
+  const campaignId = document.getElementById('campaignId').value
+  const landingId = document.getElementById('landingId').value
+  getData(dateFrom, dateTo, campaignId, landingId)
+})
+
+fetchBtn.addEventListener('click', () => {
   loader.style.display = 'block'
-  await getData()
+  const dateFrom = document.getElementById('dateFrom').value
+  const dateTo = document.getElementById('dateTo').value
+  const campaignId = document.getElementById('campaignId').value
+  const landingId = document.getElementById('landingId').value
+
+  getData(dateFrom, dateTo, campaignId, landingId)
 
   resultBlock.style.display = 'block'
   loader.style.display = 'none'
 })
 
-filterBtn.addEventListener('click', async () => {
+filterBtn.addEventListener('click', () => {
   loader.style.display = 'block'
-  await filterData()
+  const dateFrom = document.getElementById('dateFrom').value
+  const dateTo = document.getElementById('dateTo').value
+  const campaignId = document.getElementById('campaignId').value
+  const landingId = document.getElementById('landingId').value
+  const subIdValue = document.getElementById('subid').value
+  filterData(dateFrom, dateTo, campaignId, landingId, subIdValue)
 
   resultSubId.style.display = 'block'
   loader.style.display = 'none'
