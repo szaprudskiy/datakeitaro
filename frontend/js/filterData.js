@@ -37,10 +37,6 @@ const filterData = async (
     const data = await response.json()
     const getData = data.data.rows
 
-    getData.forEach((element) => {
-      console.log(element.sub_id_23)
-    })
-
     const filteredSubId = getData.filter((item) => {
       return (
         item.sub_id_21 === subIdValue ||
@@ -57,8 +53,6 @@ const filterData = async (
     })
 
     const countSubId = filteredSubId.length
-
-    console.log(countSubId)
 
     const emptyCountSubId19 = getData.reduce((count, item) => {
       return item.sub_id_19 === '' ? count + 1 : count

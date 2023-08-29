@@ -32,12 +32,6 @@ const getData = async (dateFrom, dateTo, campaignId, landingId) => {
     const data = await response.json()
     const getData = data.data.rows
 
-    // console.log(getData)
-
-    getData.forEach((element) => {
-      console.log(element)
-    })
-
     const totalCount = getData.length
 
     const emptyCountSubId19 = getData.reduce((count, item) => {
