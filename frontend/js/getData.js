@@ -63,25 +63,25 @@ const getData = async () => {
     subid20Average.textContent = (sumSubId20 / totalCount).toFixed(2)
 
     const totalInitialCheckOut = getData.reduce((acc, obj) => {
-      if (obj.sub_id_18 !== '') {
+      if (obj.landing_clicked !== '') {
         return acc + 1
       } else {
         return acc
       }
     }, 0)
 
-    const totalClicks = getData.reduce((acc, obj) => {
-      if (obj.sub_id_20 !== '') {
-        return acc + 1
-      } else {
-        return acc
-      }
-    }, 0)
+    // const totalClicks = getData.reduce((acc, obj) => {
+    //   if (obj.sub_id_20 !== '') {
+    //     return acc + 1
+    //   } else {
+    //     return acc
+    //   }
+    // }, 0)
 
     const initialCheckout = document.getElementById('initialCheckout')
 
     initialCheckout.textContent =
-      ((totalInitialCheckOut / totalClicks) * 100).toFixed(2) + ' %'
+      ((totalInitialCheckOut / totalCount) * 100).toFixed(2) + ' %'
 
     const totalIsLead = getData.reduce((count, item) => {
       return item.is_lead === true ? count + 1 : count

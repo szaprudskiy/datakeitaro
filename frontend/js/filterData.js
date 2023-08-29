@@ -97,7 +97,7 @@ const filterData = async () => {
     }, 0)
     const fb00 = document.getElementById('fb-00')
 
-    fb00.textContent = ((totalfb00 / totalCount) * 100).toFixed(2) + ' %'
+    fb00.textContent = ((totalfb00 / countSubId) * 100).toFixed(2) + ' %'
 
     const totalfb10 = getData.reduce((count, item) => {
       return item.sub_id_16 === 'fb-10' ? count + 1 : count
