@@ -32,7 +32,11 @@ const getData = async () => {
     const data = await response.json()
     const getData = data.data.rows
 
-    console.log(getData)
+    // console.log(getData)
+
+    getData.forEach((element) => {
+      console.log(element)
+    })
 
     const totalCount = getData.length
 
