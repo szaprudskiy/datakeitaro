@@ -1,4 +1,4 @@
-const getData = async () => {
+const getData = async (dateFrom, dateTo, campaignId, landingId) => {
   // const campaignId = document.getElementById('campaignId').value
   // const landingId = document.getElementById('landingId').value
   // const dateFrom = document.getElementById('dateFrom').value
