@@ -67,7 +67,7 @@ const getData = async () => {
     subid20Average.textContent = (sumSubId20 / totalCount).toFixed(2)
 
     const totalInitialCheckOut = getData.reduce((acc, obj) => {
-      if (obj.landing_clicked !== '') {
+      if (obj.landing_clicked === true) {
         return acc + 1
       } else {
         return acc
