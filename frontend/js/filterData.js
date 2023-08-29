@@ -84,13 +84,20 @@ const filterData = async () => {
       return item.is_lead === true ? count + 1 : count
     }, 0)
 
-    const lead = ((totalIsLead / countSubId) * 100).toFixed(2)
+    const lead = ((totalIsLead / countSubId) * 100).toFixed(2) + ' %'
 
     const filteredData = getData.filter((item) => item.sub_id_19 > 60)
 
     const countfilteredData = filteredData.length
 
     const factorConversion = ((countfilteredData / countSubId) * 100).toFixed(2)
+
+    const totalfb00 = getData.reduce((count, item) => {
+      return item.sub_id_16 === '' ? count + 1 : count
+    }, 0)
+    const fb00 = document.getElementById('fb-00')
+
+    fb00.textContent = ((totalfb00 / totalCount) * 100).toFixed(2) + ' %'
 
     const totalfb10 = getData.reduce((count, item) => {
       return item.sub_id_16 === 'fb-10' ? count + 1 : count

@@ -89,7 +89,7 @@ const getData = async () => {
 
     const lead = document.getElementById('isLead')
 
-    lead.textContent = ((totalIsLead / totalCount) * 100).toFixed(2)
+    lead.textContent = ((totalIsLead / totalCount) * 100).toFixed(2) + ' %'
 
     const filteredData = getData.filter((item) => item.sub_id_19 > 60)
 
