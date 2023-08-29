@@ -9,33 +9,32 @@ const resultSubId = document.getElementById('resultSubId')
 
 fetchBtn.addEventListener('click', async () => {
   loader.style.display = 'block'
-  const selectedPeriod = document.getElementById('periodSelector').value
-  const campaignId = document.getElementById('campaignId').value
-  const landingId = document.getElementById('landingId').value
-  const dateFrom = document.getElementById('dateFrom').value
-  const dateTo = document.getElementById('dateTo').value
 
-  if (selectedPeriod === 'today') {
-    const today = new Date()
-    const dateFrom = today.toISOString().split('T')[0]
-    const dateTo = dateFrom
-  } else if (selectedPeriod === 'yesterday') {
-    const yesterday = new Date()
-    yesterday.setDate(yesterday.getDate() - 1)
-    const dateFrom = yesterday.toISOString().split('T')[0]
-    const dateTo = dateFrom
-  } else if (selectedPeriod === 'lastWeek') {
-    const today = new Date()
-    const lastWeek = new Date(
-      today.getFullYear(),
-      today.getMonth(),
-      today.getDate() - 7
-    )
-    const dateFrom = lastWeek.toISOString().split('T')[0]
-    const dateTo = today.toISOString().split('T')[0]
+  const selectedPeriod = document.getElementById('periodSelector').value
+  let dateFrom = document.getElementById('dateFrom').value
+  let dateTo = document.getElementById('dateTo').value
+
+  if (!dateFrom || !dateTo) {
+    if (selectedPeriod === 'today') {
+      const today = new Date()
+      dateFrom = dateTo = today.toISOString().split('T')[0]
+    } else if (selectedPeriod === 'yesterday') {
+      const yesterday = new Date()
+      yesterday.setDate(yesterday.getDate() - 1)
+      dateFrom = dateTo = yesterday.toISOString().split('T')[0]
+    } else if (selectedPeriod === 'lastWeek') {
+      const today = new Date()
+      const lastWeek = new Date(
+        today.getFullYear(),
+        today.getMonth(),
+        today.getDate() - 7
+      )
+      dateFrom = lastWeek.toISOString().split('T')[0]
+      dateTo = today.toISOString().split('T')[0]
+    }
   }
 
-  await getData(dateFrom, dateTo, campaignId, landingId)
+  await getData(dateFrom, dateTo)
 
   resultBlock.style.display = 'block'
   loader.style.display = 'none'
