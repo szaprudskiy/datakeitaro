@@ -159,6 +159,7 @@ const filterData = async () => {
 
     const fb100 = ((totalfb100 / countSubId) * 100).toFixed(2) + ' %'
     const allfb = [
+      `fb-00: ${fb00}`,
       `fb-10: ${fb10}`,
       `fb-20: ${fb20}`,
       `fb-30: ${fb30}`,
