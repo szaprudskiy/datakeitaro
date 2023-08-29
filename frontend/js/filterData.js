@@ -32,7 +32,7 @@ const filterData = async (
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ campaignId, landingId, dateFrom, dateTo }),
+      body: JSON.stringify(requestBody),
     })
     const data = await response.json()
     const getData = data.data.rows
