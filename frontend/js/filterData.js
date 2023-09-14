@@ -52,7 +52,7 @@ const filterData = async (
       return item.sub_id_19 === '' ? count + 1 : count
     }, 0)
 
-    const percentEmptySubId19 = (emptyCountSubId19 / countSubId) * 100
+    const percentEmptySubId19 = (totalfb00 / countSubId) * 100
 
     const sumSubId19 = getData.reduce((total, obj) => {
       const value = parseInt(obj.sub_id_19, 10)

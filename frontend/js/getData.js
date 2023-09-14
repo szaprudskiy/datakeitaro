@@ -1,5 +1,5 @@
 const getData = async (dateFrom, dateTo, campaignId, landingId) => {
-  const apiUrl = 'https://lite.stat-gurteam.info/getdata'
+  const apiUrl = 'http://localhost:5003/getdata'
 
   try {
     let requestBody = {
@@ -32,7 +32,7 @@ const getData = async (dateFrom, dateTo, campaignId, landingId) => {
       return item.sub_id_19 === '' ? count + 1 : count
     }, 0)
 
-    const percentEmptySubId19 = (emptyCountSubId19 / totalCount) * 100
+    const percentEmptySubId19 = (totalfb00 / totalCount) * 100
 
     const subid19Refusal = document.getElementById('subid19Refusal')
 
