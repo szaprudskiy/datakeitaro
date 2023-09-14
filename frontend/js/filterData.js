@@ -48,6 +48,10 @@ const filterData = async (
 
     const countSubId = filteredSubId.length
 
+    const totalfb00 = getData.reduce((count, item) => {
+      return item.sub_id_16 === '' ? count + 1 : count
+    }, 0)
+
     const emptyCountSubId19 = getData.reduce((count, item) => {
       return item.sub_id_19 === '' ? count + 1 : count
     }, 0)
@@ -99,9 +103,9 @@ const filterData = async (
 
     const factorConversion = ((countfilteredData / countSubId) * 100).toFixed(2)
 
-    const totalfb00 = getData.reduce((count, item) => {
-      return item.sub_id_16 === '' ? count + 1 : count
-    }, 0)
+    // const totalfb00 = getData.reduce((count, item) => {
+    //   return item.sub_id_16 === '' ? count + 1 : count
+    // }, 0)
 
     const fb00 = ((totalfb00 / countSubId) * 100).toFixed(2) + ' %'
 

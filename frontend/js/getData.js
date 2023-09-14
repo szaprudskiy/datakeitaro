@@ -1,5 +1,5 @@
 const getData = async (dateFrom, dateTo, campaignId, landingId) => {
-  const apiUrl = 'http://localhost:5003/getdata'
+  const apiUrl = 'https://lite.stat-gurteam.info/getdata'
 
   try {
     let requestBody = {
@@ -27,6 +27,10 @@ const getData = async (dateFrom, dateTo, campaignId, landingId) => {
     const getData = data.data.rows
 
     const totalCount = getData.length
+
+    const totalfb00 = getData.reduce((count, item) => {
+      return item.sub_id_16 === '' ? count + 1 : count
+    }, 0)
 
     const emptyCountSubId19 = getData.reduce((count, item) => {
       return item.sub_id_19 === '' ? count + 1 : count
@@ -94,9 +98,9 @@ const getData = async (dateFrom, dateTo, campaignId, landingId) => {
       100
     ).toFixed(2)
 
-    const totalfb00 = getData.reduce((count, item) => {
-      return item.sub_id_16 === '' ? count + 1 : count
-    }, 0)
+    // const totalfb00 = getData.reduce((count, item) => {
+    //   return item.sub_id_16 === '' ? count + 1 : count
+    // }, 0)
     const fb00 = document.getElementById('fb-00')
 
     fb00.textContent = ((totalfb00 / totalCount) * 100).toFixed(2) + ' %'
